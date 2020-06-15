@@ -1,0 +1,11 @@
+# LaTeX compilation files
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.log
+
+# macOS debris files
+.DS_Store
+._.DS_Store

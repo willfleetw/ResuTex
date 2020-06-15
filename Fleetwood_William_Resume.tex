@@ -1,0 +1,254 @@
+\documentclass{article}
+
+%----- packages -----------------------
+\usepackage{array}
+\usepackage[inline]{enumitem}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{latexsym}
+\usepackage{multicol}
+\usepackage{tabto}
+\usepackage{amssymb}
+
+%----- page setup ---------------------
+\pagestyle{empty}
+\geometry{
+  letterpaper,
+  lmargin=0.45in,
+  rmargin=0.45in,
+  tmargin=0.30in,
+  bmargin=0.15in
+}
+\setitemize[0]{
+  leftmargin=0em
+}
+
+%----- custom layout macros -----------
+\newcommand{\textul}[1]{\underline{\smash{#1}}}
+\newcommand{\toolbullet}[0]{\texttt{>> }}
+\newcommand{\EventTitle}[1]{\textul{#1}}
+\newcommand{\MEANStackToolList}[0]{\texttt{MEAN Stack} 
+  (\ProjectTool{MongoDB}, \ProjectTool{ExpressJS}, 
+  \ProjectTool{AngularJS}, \ProjectTool{Node.js})}
+
+%--- CONTACT INFO
+\newcommand{\Name}[1]{#1} % (no extra formatting on macros like these)
+\newcommand{\Phone}[1]{#1}
+\newcommand{\Email}[1]{\href{mailto:#1}{<#1>}}
+\newcommand{\Website}[1]{\texttt{\href{#1}{\textul{#1}}}}
+\newcommand{\ContactInfo}[5]{
+  \part*{#1}
+  \begin{tabular}{ @{} m{10em} m{10em} @{} }
+    \texttt{#2} & \texttt{#4} \\ #3 & \texttt{#5}
+  \end{tabular}
+  %1: \Name
+  %2: \Email
+  %3: \Phone
+  %4: \Website
+  %5: \Website
+}
+
+%--- EDUCATION
+\newcommand{\College}[1]{\textsc{#1}}
+\newcommand{\Major}[1]{#1}
+\newcommand{\StartYear}[1]{#1}
+\newcommand{\GradYear}[1]{#1}
+\newcommand{\GPA}[1]{#1}
+\newcommand{\Education}[5]{
+  \begin{itemize}[leftmargin=.125cm]
+    \item[] {\textbf{\large #1 --- #2}} \item[] {\large #3 to #4	GPA: #5}
+  \end{itemize}
+  %1: \College
+  %2: \Major
+  %3: \StartYear
+  %4: \endyear
+  %5:	\GPA
+}
+\newcommand{\CourseName}[1]{\textul{#1}}
+\newcommand{\CourseCode}[1]{#1}
+\newcommand{\CourseItem}[2]{
+  \item[] #1 #2
+  %1: \CourseName
+  %2: \CourseItem
+}
+\newcommand{\startcourses}{
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=.5cm]
+\itemsep0em
+}
+\newcommand{\closecourses}{
+\end{itemize}
+\end{multicols}
+}
+\newcommand{\CourseList}[8]{
+  \begin{multicols}{2}
+    \begin{itemize}[itemsep=0em]
+      #1 #2 #3 #4 \columnbreak #5 #6 #7 #8
+    \end{itemize}
+  \end{multicols}
+  %1 to %8: \CourseItem
+}
+%1: \College
+  %2: \Major
+  %3: \StartYear
+  %4: \endyear
+  
+%--- EXPERIENCE
+\newcommand{\ExpItem}[1]{\item #1}
+\newcommand{\Workplace}[1]{#1}
+\newcommand{\JobTitle}[1]{#1}
+\newcommand{\Location}[1]{#1}
+\newcommand{\StartDate}[1]{#1}
+\newcommand{\EndDate}[1]{#1}
+\newcommand{\Experience}[5]{
+  \begin{itemize}[leftmargin=.125cm]
+  		\item[] {\textbf{\large #1, #3 --- #2}} \item[] {\large #4 to #5}
+  \end{itemize}
+	%1: \Workplace
+  %2: \JobTitle
+  %3: \Location
+  %4: \StartDate
+  %5:	\EndDate 
+}
+\newcommand{\startexpitems}{
+%\begin{multicols}{2}
+\begin{itemize}[leftmargin=.6cm]
+}
+\newcommand{\closeexpitems}{
+\end{itemize}
+%\end{multicols}
+}
+
+%--- SKILLS
+\newcommand{\SkillItem}[1]{\item #1}
+\newcommand{\startskillitems}{
+\begin{itemize}[leftmargin=.6cm]
+}
+\newcommand{\closeskillitems}{
+\end{itemize}
+}
+
+%--- PROJECTS
+\newcommand{\ProjectTitle}[1]{#1}
+\newcommand{\ProjectShortDesc}[1]{#1}
+\newcommand{\ProjectLink}[1]{\url{#1}}
+\newcommand{\Project}[3]{
+	\begin{itemize}[leftmargin=.125cm]
+		\item[] {\textbf{\large #1 -- #2}} \item[] #3
+	\end{itemize}
+}
+
+%--- REFERENCES
+\newcommand{\ReferenceName}[1]{\textsc{#1}}
+\newcommand{\ReferenceEmail}[1]{\href{mailto:#1}{\ttfamily <#1>}}
+\newcommand{\ReferenceItem}[2]{
+  \item[] #1 \\ #2
+  %1: \ReferenceName
+  %2: \ReferenceEmail
+}
+\newcommand{\References}[3]{
+  \section*{References}
+  \begin{multicols}{3}
+    \begin{itemize}
+      #1 #2 #3latex multicolumn center
+    \end{itemize}
+  \end{multicols}
+  %1 to %3: \ReferenceItem
+}
+
+
+
+%----- document content ---------------
+\begin{document}
+
+\ContactInfo
+  {\Name{William Fleetwood}}
+  {\Email{willfleetw@gmail.com}}
+  {\Phone{(xxx) xxx-xxxx}}
+  {\Website{https://linkedin.com/in/william-fleetwood}}
+\section*{Education}
+\Education
+  {\College{Western Washington University}}
+  {\Major{Computer Science, Honors BS}}
+  {\StartYear{September 2014}}
+  {\GradYear{June 2018}}
+  {\GPA{3.3}}
+\startcourses
+  {\CourseItem
+    {\CourseName{Data Structures}}
+    {\CourseCode{CSCI 241}}
+  }
+  {\CourseItem
+    {\CourseName{Formal Languages \& Functional Programming}}
+    {\CourseCode{CSCI 301}}
+  }
+  {\CourseItem
+  		{\CourseName{Computer Systems I}}
+  		{\CourseCode{CSCI 247}}
+  }
+  {\CourseItem
+  		{\CourseName{Database Systems}}
+  		{\CourseCode{CSCI 330}}
+  }
+  {\CourseItem
+  		{\CourseName{Unix Software Development}}
+  		{\CourseCode{CSCI 352}}
+  }
+  {\CourseItem
+  		{\CourseName{Analysis of Algorithms I}}
+  		{\CourseCode{CSCI 305}}
+  }
+  {\CourseItem
+  		{\CourseName{Principles of Concurrent Programming}}
+  		{\CourseCode{CSCI 322}}
+  }
+  {\CourseItem
+  		{\CourseName{Object Oriented Design}}
+  		{\CourseCode{CSCI 345}}
+  }
+  {\CourseItem
+    {\CourseName{Computer Networks I}}
+    {\CourseCode{CSCI 367}}
+  }
+  {\CourseItem
+    {\CourseName{Social Network Analysis}}
+    {\CourseCode{CSCI 424}}
+  }
+\closecourses
+
+\section*{Experience}
+\Experience
+    {\Workplace{DocuSign}}
+    {\JobTitle{Software Engineer Intern}}
+    {\Location{Seattle, WA}}
+    {\StartDate{June 2018}}
+    {\EndDate{September 2018}}
+\startexpitems
+    {\ExpItem{Appliance Team, working on making various aspects of the DocuSign service into separate packages that can either be hosted internally by DocuSign, or externally in a customer's own datacenter. This allows customers to maintain control over their cryptographic keys, storage of documents, and the overall signing experience.}}
+    {\ExpItem{Full stack development, .NET focused environment, distributed networks, cryptographic hardware\textbackslash software, asymmetric and symmetric keys, and low\textbackslash high level networking experience,}}
+\closeexpitems
+\Experience
+	{\Workplace{Syrilla Services}}
+	{\JobTitle{Software Development Intern/IT Support}}
+	{\Location{Bellevue, WA}}
+	{\StartDate{July 2017}}
+	{\EndDate{September 2017}}
+\startexpitems
+	{\ExpItem{Sole designer \& developer using C\#, the Entity Framework, and SQL databases to take user input and create meaningful SQL database requests/pushes for a clear and concise display of healthcare plan appeals.}}
+	{\ExpItem{Small 5 person IT support team, servicing a little more than 50 employees. Included server administration, security analysis, and database management and design.}}
+\closeexpitems
+
+\section*{Personal Projects}
+\Project
+	{\ProjectTitle{wim}}
+	{\ProjectShortDesc{Terminal text editor halfway between nano and vim (WIP)}}
+	{\ProjectLink{https://github.com/fleetww/wim}}
+\startexpitems
+	{\ExpItem{Sole designer and contributor, using C and the ncurses library to implement a more capable nano with a vim-like interface.}}
+	{\ExpItem{Bridges gap between nano, which is too basic, and vim, which has too steep a learning curve.}}
+\closeexpitems
+
+\section*{Skills (most $\rightarrow$ least)}
+C\#, C, Java, SQL, Python, JavaScript, TypeScript, UNIX(like), \& Windows
+
+\end{document}
